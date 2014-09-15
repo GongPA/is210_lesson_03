@@ -16,9 +16,9 @@ QUALIFIED = raw_input("Are you prequalified for this loan? \n"
 if PRINCIPLE > 0:
 
     if 0 < PRINCIPLE <= 199999:
-        FINDINTREST =100
+        FINDINTREST = 100
     elif 200000 <= PRINCIPLE <= 999999:
-        FINDINTREST =200
+        FINDINTREST = 200
     elif PRINCIPLE >= 1000000:
         FINDINTREST = 300
                 
@@ -31,24 +31,23 @@ if PRINCIPLE > 0:
     if QUALIFIED == "1":
         FINDINTREST += 1
         QUALIFIED = 'Yes'
-    elif  QUALIFIED == "0":
+    elif QUALIFIED == "0":
         FINDINTREST += 0
         QUALIFIED = 'No'
 
-    RATE = { 111:0.0363,
-             110:0.0465,
-             121:0.0404,
-             120:0.0498,
-             131:0.0577,
-             130:0.0639,
-             211:0.0302,
-             210:0.0398,
-             221:0.0327,
-             220:0.0408,
-             231:0.0466,
-             311:0.0205,
+    RATE = {111:0.0363, 
+             110:0.0465, 
+             121:0.0404, 
+             120:0.0498, 
+             131:0.0577, 
+             130:0.0639, 
+             211:0.0302, 
+             210:0.0398, 
+             221:0.0327, 
+             220:0.0408, 
+             231:0.0466, 
+             311:0.0205, 
              321:0.0262}[FINDINTREST]
-
 
     P = Decimal(PRINCIPLE)
     r = Decimal(RATE)
@@ -58,11 +57,9 @@ if PRINCIPLE > 0:
     TOTAL = Decimal(P * ((1+(r/n)) ** (n * t)))
     TOTAL = round(TOTAL)
 
-    prTOTAL = str('{0}{1:,.0f}'.format('$', TOTAL))
-    prPRINCIPLE = '{0}{1:,.0f}'.format('$', P)
-    prYEARS = str(t) + "yrs"
-
-
+    PR_TOTAL = str('{0}{1:,.0f}'.format('$', TOTAL))
+    PR_PRINCIPLE = '{0}{1:,.0f}'.format('$', P)
+    PR_YEARS = str(t) + "yrs"
 
     REPORT = (
         'Loan Report for: {0}'
@@ -72,7 +69,7 @@ if PRINCIPLE > 0:
         '\n\tPre-Qualified?:   {4:>10}'
         '\n'
         '\n\tTotal:            {5:>10}'
-        ).format(NAME, '-' * 68, prPRINCIPLE, prYEARS, QUALIFIED, prTOTAL)
+        ).format(NAME, '-' * 68, PR_PRINCIPLE, PR_YEARS, QUALIFIED, PR_TOTAL)
 else:
     REPORT = "NONE"
 
