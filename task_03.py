@@ -43,5 +43,5 @@ elif BASE == "2":
             HIGHLIGHT = "Not White"
 
 print (
-    '\n \nYour base color is {0}; \nYour accent is {1}; \n'
-    'And your highlight is {2}.').format(BASE, ACCENT, HIGHLIGHT)
+    "\n \nYour base color is {0}; \nYour accent is {1}; \n"
+    "And your highlight is {2}.").format(BASE, ACCENT, HIGHLIGHT)
