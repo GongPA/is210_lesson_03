@@ -25,7 +25,7 @@ if BASE == "1":
         elif HIGHLIGHT == "2":
             HIGHLIGHT = "Paper White"
 elif BASE == "2":
-    BASE == "Manatee"
+    BASE = "Manatee"
     ACCENT = raw_input("[1] Platinum Mist of [2] Spartan Sage : ")
     if ACCENT == "1":
         ACCENT = "Platinum Mist"
