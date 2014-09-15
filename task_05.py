@@ -50,11 +50,11 @@ if PRINCIPLE > 0:
             321:0.0262}[FINDINTREST]
 
     P = Decimal(PRINCIPLE)
-    r = Decimal(RATE)
-    t = YEARS
-    n = 12
+    R = Decimal(RATE)
+    T = YEARS
+    N = 12
 
-    TOTAL = Decimal(P * ((1+(r/n)) ** (n * t)))
+    TOTAL = Decimal(P * ((1+(R/N)) ** (N * T)))
     TOTAL = round(TOTAL)
 
     PR_TOTAL = str('{0}{1:,.0f}'.format('$', TOTAL))
