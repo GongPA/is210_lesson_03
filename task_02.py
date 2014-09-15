@@ -6,11 +6,11 @@ BP_STATUS = int(raw_input("Please input a blood pressure : "))
 
 if BP_STATUS <= 90:
     BP_STATUS = "Low"
-elif  90 <BP_STATUS <= 119:
+elif 90 < BP_STATUS <= 119:
     BP_STATUS = "Ideal"
-elif  119 < BP_STATUS <= 139:
+elif 119 < BP_STATUS <= 139:
     BP_STATUS = "Warning"
-elif  139 < BP_STATUS <= 160:
+elif 139 < BP_STATUS <= 160:
     BP_STATUS = "High"
 elif BP_STATUS > 160:
     BP_STATUS = "Emergency"

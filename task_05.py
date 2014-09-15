@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Task 05: Compound Examples"""
+"""
+Task 05: Compound Examples
+"""
 
 from decimal import Decimal
 
@@ -53,7 +55,7 @@ if PRINCIPLE > 0:
     t = YEARS
     n = 12
 
-    TOTAL = Decimal(P * ((1+frac(r/n)) ** (n * t)))
+    TOTAL = Decimal(P * ((1+(r/n)) ** (n * t)))
     TOTAL = round(TOTAL)
 
     prTOTAL = str('{0}{1:,.0f}'.format('$', TOTAL))

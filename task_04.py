@@ -18,4 +18,4 @@ if TIME < 600 or DAY == '6' or DAY == '7':
 else:
     SNOOZE = False
 
-print ("SNOOZE mode will be {0}").format(SNOOZE)
+print SNOOZE
