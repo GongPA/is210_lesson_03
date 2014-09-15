@@ -59,7 +59,7 @@ if PRINCIPLE > 0:
 
     PR_TOTAL = str('{0}{1:,.0f}'.format('$', TOTAL))
     PR_PRINCIPLE = '{0}{1:,.0f}'.format('$', P)
-    PR_YEARS = str(t) + "yrs"
+    PR_YEARS = str(T) + "yrs"
 
     REPORT = (
         'Loan Report for: {0}'
