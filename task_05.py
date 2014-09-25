@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Task 5"""
+"""redo Task 5"""
 from decimal import Decimal
 NAME = raw_input("What is your name? ").title()
 PRINCIPLE = int(raw_input(
@@ -9,55 +9,53 @@ YEARS = int(raw_input("For how many years is this loan being borrowed? "))
 QUALIFIED = raw_input("Are you prequalified for this loan? ").upper()[:1]
 INTEREST = 0
 if 0 <= PRINCIPLE <= 199999:
-if 1 <= YEARS <= 15:
-if QUALIFIED == "Y":
-INTEREST = '.0363'
-elif QUALIFIED == "N":
-INTEREST = '.0465'
-else:
-INTEREST = '0.0'
-elif 15 < YEARS <= 20:
-if QUALIFIED == "Y":
-INTEREST = '.0404'
-elif QUALIFIED == "N":
-INTEREST = '.0498'
-else:
-INTEREST = '0.0'
-elif 20 < YEARS <= 30:
-if QUALIFIED == "Y":
-INTEREST = '.0577'
-elif QUALIFIED == "N":
-INTEREST = '.0639'
-else:
-INTEREST = '0.0'
+    if 1 <= YEARS <= 15:
+        if QUALIFIED == "Y":
+            INTEREST = '.0363'
+        elif QUALIFIED == "N":
+                INTEREST = '.0465'
+        else:
+                    INTEREST = '0.0'
+    elif 15 < YEARS <= 20:
+            if QUALIFIED == "Y":
+                INTEREST = '.0404'
+            elif QUALIFIED == "N":
+                INTEREST = '.0498'  
+            else:
+                INTEREST = '0.0'
+    elif 20 < YEARS <= 30:
+            if QUALIFIED == "Y":
+                INTEREST = '.0577'
+            elif QUALIFIED == "N":
+                INTEREST = '.0639'
+            else:
+                INTEREST = '0.0'
 elif 200000 <= PRINCIPLE <= 999999:
-if 1 <= YEARS <= 15:
-if QUALIFIED == "Y":
-INTEREST = '.0302'
-elif QUALIFIED == "N":
-INTEREST = '.0398'
-else:
-INTEREST = '0.0'
-elif 15 < YEARS <= 20:
-if QUALIFIED == "Y":
-INTEREST = '.0327'
-elif QUALIFIED == "N":
-INTEREST = '.0408'
-else:
-INTEREST = '0.0'
-elif 20 < YEARS <= 30 and QUALIFIED == "Y":
-INTEREST = '.0466'
-else:
-INTEREST = '0.0'
+    if 1 <= YEARS <= 15:
+        if QUALIFIED == "Y":
+            INTEREST = '.0302'
+        elif QUALIFIED == "N":
+            INTEREST = '.0398'
+        else:
+            INTEREST = '0.0'
+    elif 15 < YEARS <= 20:
+        if QUALIFIED == "Y":
+            INTEREST = '.0327'
+        elif QUALIFIED == "N":
+            INTEREST = '.0408'
+        else:
+            INTEREST = '0.0'
+    elif 20 < YEARS <= 30 and QUALIFIED == "Y":
+            INTEREST = '.0466'
+    else:
+            INTEREST = '0.0'
 elif PRINCIPLE >= 1000000:
-if 1 <= YEARS <= 15 and QUALIFIED == "Y":
-INTEREST = '.0205'
-elif 15 < YEARS <= 20 and QUALIFIED == "Y":
-INTEREST = '.0262'
-else:
-INTEREST = '0.0'
-else:
-INTEREST = '0.0'
+    if 1 <= YEARS <= 15 and QUALIFIED == "Y":
+        INTEREST = '.0205'
+    elif 15 < YEARS <= 20 and QUALIFIED == "Y":
+        INTEREST = '.0262'
+    else:
+        INTEREST = '0.0'
 PRINCIPLE = Decimal(PRINCIPLE)
 INTEREST = Decimal(INTEREST)
 YEARS = Decimal(YEARS)
@@ -65,23 +63,23 @@ PY = Decimal(12)
 TOTAL = Decimal(PRINCIPLE * (1+(INTEREST/PY)) ** (PY * YEARS))
 TOTAL = round(TOTAL)
 if INTEREST == float('0.0'):
-TOT_REPO = None
-TOTAL = None
+   TOT_REPO = None
+   TOTAL = None
 else:
-TOT_REPO = str('{0}{1:,.0f}'.format('$', TOTAL))
-PRIN_REPO = '{0}{1:,.0f}'.format('$', PRINCIPLE)
-YEAR_REPO = str(YEARS) + "yrs"
-if QUALIFIED == 'Y':
-QUALIFIED = 'Yes'
-else:
-QUALIFIED = 'No'
+   TOT_REPO = str('{0}{1:,.0f}'.format('$', TOTAL))
+   PRIN_REPO = '{0}{1:,.0f}'.format('$', PRINCIPLE)
+   YEAR_REPO = str(YEARS) + "yrs"
+   if QUALIFIED == 'Y':
+        QUALIFIED = 'Yes'
+   else:
+        QUALIFIED = 'No'
 REPORT = (
-'Loan Report for: {0}'
-'\n{1}'
-'\n\tPrincipal: {2:>10}'
-'\n\tDuration: {3:>10}'
-'\n\tPre-Qualified?: {4:>10}'
-'\n'
-'\n\tTotal: {5:>10}'
-).format(NAME, '-' * 68, PRIN_REPO, YEAR_REPO, QUALIFIED, TOT_REPO)
+        'Loan Report for: {0}'
+        '\n{1}'
+        '\n\tPrincipal:      {2:>10}'
+        '\n\tDuration:       {3:>10}'
+        '\n\tPre-Qualified?: {4:>10}'
+        '\n'
+        '\n\tTotal:          {5:>10}'
+        ).format(NAME, '-' * 68, PRIN_REPO, YEAR_REPO, QUALIFIED, TOT_REPO)
 print REPORT
