@@ -1,76 +1,87 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-Task 05: Compound Examples
-"""
-
+"""Task 5"""
 from decimal import Decimal
-
-NAME = raw_input("What is your name? \n").title()
+NAME = raw_input("What is your name? ").title()
 PRINCIPLE = int(raw_input(
-    "What is the amount of your principle (amount being borrowed)? \n"))
-YEARS = int(raw_input("For how many years is this loan being borrowed? \n"))
-QUALIFIED = raw_input("Are you prequalified for this loan? \n"
-                      "[1] for YES \n"
-                      "[0] for NO \n").upper()[:1]
-if PRINCIPLE > 0:
-
-    if 0 < PRINCIPLE <= 199999:
-        FINDINTREST = 100
-    elif 200000 <= PRINCIPLE <= 999999:
-        FINDINTREST = 200
-    elif PRINCIPLE >= 1000000:
-        FINDINTREST = 300
-
-    if 1 <= YEARS <= 15:
-        FINDINTREST += 10
-    elif 15 < YEARS <= 20:
-        FINDINTREST += 20
-    elif 20 < YEARS <= 30:
-        FINDINTREST += 30
-    if QUALIFIED == "1":
-        FINDINTREST += 1
-        QUALIFIED = 'Yes'
-    elif QUALIFIED == "0":
-        FINDINTREST += 0
-        QUALIFIED = 'No'
-
-    RATE = {111:0.0363, 
-            110:0.0465, 
-            121:0.0404, 
-            120:0.0498, 
-            131:0.0577, 
-            130:0.0639, 
-            211:0.0302, 
-            210:0.0398, 
-            221:0.0327, 
-            220:0.0408, 
-            231:0.0466, 
-            311:0.0205, 
-            321:0.0262}[FINDINTREST]
-
-    P = Decimal(PRINCIPLE)
-    R = Decimal(RATE)
-    T = YEARS
-    N = 12
-
-    TOTAL = Decimal(P * ((1+(R/N)) ** (N * T)))
-    TOTAL = round(TOTAL)
-
-    PR_TOTAL = str('{0}{1:,.0f}'.format('$', TOTAL))
-    PR_PRINCIPLE = '{0}{1:,.0f}'.format('$', P)
-    PR_YEARS = str(T) + "yrs"
-
-    REPORT = (
-        'Loan Report for: {0}'
-        '\n{1}'
-        '\n\tPrincipal:        {2:>10}'
-        '\n\tDuration:         {3:>10}'
-        '\n\tPre-Qualified?:   {4:>10}'
-        '\n'
-        '\n\tTotal:            {5:>10}'
-        ).format(NAME, '-' * 68, PR_PRINCIPLE, PR_YEARS, QUALIFIED, PR_TOTAL)
+'What is the amount of your principle (amount being borrowed)? '))
+YEARS = int(raw_input("For how many years is this loan being borrowed? "))
+QUALIFIED = raw_input("Are you prequalified for this loan? ").upper()[:1]
+INTEREST = 0
+if 0 <= PRINCIPLE <= 199999:
+if 1 <= YEARS <= 15:
+if QUALIFIED == "Y":
+INTEREST = '.0363'
+elif QUALIFIED == "N":
+INTEREST = '.0465'
 else:
-    REPORT = "NONE"
-
+INTEREST = '0.0'
+elif 15 < YEARS <= 20:
+if QUALIFIED == "Y":
+INTEREST = '.0404'
+elif QUALIFIED == "N":
+INTEREST = '.0498'
+else:
+INTEREST = '0.0'
+elif 20 < YEARS <= 30:
+if QUALIFIED == "Y":
+INTEREST = '.0577'
+elif QUALIFIED == "N":
+INTEREST = '.0639'
+else:
+INTEREST = '0.0'
+elif 200000 <= PRINCIPLE <= 999999:
+if 1 <= YEARS <= 15:
+if QUALIFIED == "Y":
+INTEREST = '.0302'
+elif QUALIFIED == "N":
+INTEREST = '.0398'
+else:
+INTEREST = '0.0'
+elif 15 < YEARS <= 20:
+if QUALIFIED == "Y":
+INTEREST = '.0327'
+elif QUALIFIED == "N":
+INTEREST = '.0408'
+else:
+INTEREST = '0.0'
+elif 20 < YEARS <= 30 and QUALIFIED == "Y":
+INTEREST = '.0466'
+else:
+INTEREST = '0.0'
+elif PRINCIPLE >= 1000000:
+if 1 <= YEARS <= 15 and QUALIFIED == "Y":
+INTEREST = '.0205'
+elif 15 < YEARS <= 20 and QUALIFIED == "Y":
+INTEREST = '.0262'
+else:
+INTEREST = '0.0'
+else:
+INTEREST = '0.0'
+PRINCIPLE = Decimal(PRINCIPLE)
+INTEREST = Decimal(INTEREST)
+YEARS = Decimal(YEARS)
+PY = Decimal(12)
+TOTAL = Decimal(PRINCIPLE * (1+(INTEREST/PY)) ** (PY * YEARS))
+TOTAL = round(TOTAL)
+if INTEREST == float('0.0'):
+TOT_REPO = None
+TOTAL = None
+else:
+TOT_REPO = str('{0}{1:,.0f}'.format('$', TOTAL))
+PRIN_REPO = '{0}{1:,.0f}'.format('$', PRINCIPLE)
+YEAR_REPO = str(YEARS) + "yrs"
+if QUALIFIED == 'Y':
+QUALIFIED = 'Yes'
+else:
+QUALIFIED = 'No'
+REPORT = (
+'Loan Report for: {0}'
+'\n{1}'
+'\n\tPrincipal: {2:>10}'
+'\n\tDuration: {3:>10}'
+'\n\tPre-Qualified?: {4:>10}'
+'\n'
+'\n\tTotal: {5:>10}'
+).format(NAME, '-' * 68, PRIN_REPO, YEAR_REPO, QUALIFIED, TOT_REPO)
 print REPORT
