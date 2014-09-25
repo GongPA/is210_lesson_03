@@ -1,21 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Task 04: Ternary Expressions"""
-
-DAY = raw_input("Please choose the day : \n"
-                "[1] Monday \n"
-                "[2] Tuesday \n"
-                "[3] Wednesday \n"
-                "[4] Thursday \n"
-                "[5] Friday \n"
-                "[6] Saturday \n"
-                "[7] Sunday \n")
-
-TIME = int(raw_input("And the time (ex: 0630): \n"))
-
-if TIME < 600 or DAY == '6' or DAY == '7':
+"""redo task 4"""
+DAY = raw_input("What day is it? : ").lower()[slice(0, 3)]
+TIME = int(raw_input("What time is it? (ex: 0630): "))
+if TIME < 600 or DAY == 'sat' or DAY == 'sun':
     SNOOZE = True
 else:
     SNOOZE = False
-
 print SNOOZE
