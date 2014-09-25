@@ -3,7 +3,8 @@
 """redo Task 5"""
 from decimal import Decimal
 NAME = raw_input("What is your name? ").title()
-PRINCIPLE = int(raw_input("What is the amount of your principle (amount being borrowed)? "))
+PRINCIPLE = int(raw_input("What is the amount of your principle"
+                          "(amount being borrowed)? "))
 YEARS = int(raw_input("For how many years is this loan being borrowed? "))
 QUALIFIED = raw_input("Are you prequalified for this loan? ").upper()[:1]
 INTEREST = 0
@@ -19,7 +20,7 @@ if 0 <= PRINCIPLE <= 199999:
         if QUALIFIED == "Y":
             INTEREST = '.0404'
         elif QUALIFIED == "N":
-            INTEREST = '.0498'  
+            INTEREST = '.0498'
         else:
             INTEREST = '0.0'
     elif 20 < YEARS <= 30:
@@ -45,9 +46,9 @@ elif 200000 <= PRINCIPLE <= 999999:
         else:
             INTEREST = '0.0'
     elif 20 < YEARS <= 30 and QUALIFIED == "Y":
-            INTEREST = '.0466'
+        INTEREST = '.0466'
     else:
-            INTEREST = '0.0'
+        INTEREST = '0.0'
 elif PRINCIPLE >= 1000000:
     if 1 <= YEARS <= 15 and QUALIFIED == "Y":
         INTEREST = '.0205'
